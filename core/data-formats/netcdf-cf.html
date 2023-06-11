@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NetCDF and CF: The Basics &#8212; Project Pythia Foundations</title>
+    <title>NetCDF and CF: The Basics &#8212; Pythia Foundations</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,97 +20,191 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-pythia-theme.min.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Xarray" href="../xarray.html" />
     <link rel="prev" title="Data Formats" href="../data-formats.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
 
-
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-G57FLM9M46"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-G57FLM9M46');
+                </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
+    <div class="container-fluid" id="shim"></div>
+    <div class="container-fluid" id="banner"></div>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar shadow" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
     
 
+<a class="navbar-brand" href="https://projectpythia.org">
+  <img src="../../_static/pythia_logo-white-rtext.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class=" collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org">Home</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://foundations.projectpythia.org">Foundations</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://cookbooks.projectpythia.org">Cookbooks</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/resource-gallery.html">Resources</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/index.html#join-us">Community</a>
+  </li>
+  
+  
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ProjectPythia" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/project_pythia" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" rel="noopener" target="_blank" title="YouTube">
+            <span><i class="fab fa-youtube-square"></i></span>
+            <label class="sr-only">YouTube</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
     <div class="container-xl">
       <div class="row">
-          
+        
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../index.html">
-  
-  <img src="../../_static/ProjectPythia_Logo_Final-01-Blue.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Project Pythia Foundations</h1>
-  
-</a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+        <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../landing-page.html">
-   Project Pythia Foundations
+   Pythia Foundations
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Preamble
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../preamble/how-to-use.html">
    How to Use This Book
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Foundational skills
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../foundations/overview.html">
    Overview
@@ -120,21 +215,31 @@
    Why Python?
   </a>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../foundations/getting-started-python.html">
-   Getting started with Python
+   Getting Started with Python
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../foundations/quickstart.html">
-     Quickstart: zero to Python
+     Quickstart: Zero to Python
     </a>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../foundations/how-to-run-python.html">
      Installing and Running Python
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../foundations/terminal.html">
        Python in the Terminal
@@ -151,78 +256,123 @@
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../foundations/getting-started-jupyter.html">
-   Getting started with Jupyter
+   Getting Started with Jupyter
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../foundations/jupyter-notebooks.html">
-     What is a Jupyter notebook?
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../foundations/how-to-run-notebooks.html">
-     Running a Jupyter notebook: local vs. remote
+    <a class="reference internal" href="../../foundations/jupyterlab.html">
+     JupyterLab
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../foundations/markdown.html">
-     Formatted text in the notebook with Markdown
+     Formatted Text in the Notebook with Markdown
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../foundations/getting-started-github.html">
-   Getting started with GitHub
+   Getting Started with GitHub
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../foundations/what-is-github.html">
+    <a class="reference internal" href="../../foundations/github/what-is-github.html">
      What is GitHub?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../foundations/git.html">
-     Basic version control with git
+    <a class="reference internal" href="../../foundations/github/github-repos.html">
+     GitHub Repositories
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../foundations/github-pull-request.html">
+    <a class="reference internal" href="../../foundations/github/github-issues.html">
+     Issues and Discussions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../foundations/github/github-cloning-forking.html">
+     Cloning and Forking a Repository
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../foundations/github/github-setup-advanced.html">
+     Configuring Your GitHub Account
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../foundations/github/basic-git.html">
+     Basic Version Control with
+     <em>
+      git
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../foundations/github/git-branches.html">
+     Git Branches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../foundations/github/github-pull-request.html">
      Opening a Pull Request on GitHub
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../foundations/github/review-pr.html">
+     Reviewing Pull Requests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../foundations/github/github-workflows.html">
+     GitHub Workflows
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../foundations/github/contribute-to-pythia.html">
+     Contribute to Project Pythia via GitHub
+    </a>
+   </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Core Scientific Python packages
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../overview.html">
    Overview
   </a>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../numpy.html">
    NumPy
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../numpy/numpy-basics.html">
      NumPy Basics
@@ -239,132 +389,174 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../matplotlib.html">
    Matplotlib
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../matplotlib/matplotlib.html">
+    <a class="reference internal" href="../matplotlib/matplotlib-basics.html">
      Matplotlib Basics
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../matplotlib/histograms-piecharts-animation.html">
+     Histograms, Pie Charts, and Animations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../matplotlib/annotations-colorbars-layouts.html">
+     Annotations, Colorbars, and Advanced Layouts
+    </a>
+   </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../cartopy.html">
    Cartopy
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../cartopy/cartopy.html">
      Introduction to Cartopy
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../datetime.html">
    Datetime
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../datetime/datetime.html">
-     Times and dates in Python
+     Times and Dates in Python
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../pandas.html">
    Pandas
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../pandas/pandas.html">
      Introduction to Pandas
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../data-formats.html">
    Data Formats
   </a>
-  <ul class="current collapse-ul">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      NetCDF and CF: The Basics
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../xarray.html">
    Xarray
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../xarray/xarray.html">
+    <a class="reference internal" href="../xarray/xarray-intro.html">
      Introduction to Xarray
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../xarray/computation-masking.html">
+     Computations and Masks with Xarray
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../xarray/enso-xarray.html">
+     Calculating ENSO with Xarray
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../xarray/dask-arrays-xarray.html">
+     Dask Arrays with Xarray
+    </a>
+   </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../appendix/how-to-contribute.html">
-   Pythia Foundations contributor’s guide
+   Pythia Foundations Contributor’s Guide
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../appendix/template.html">
      Project Pythia Notebook Template
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
+  We want your feedback! Fill out this <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVa1TC9xM-dk7qIE2e8bsgSrIP82yYDNw3wew3J46eREJa4w/viewform?usp=sf_link">Google Form</a>
+or see our <a href="https://foundations.projectpythia.org/appendix/how-to-contribute.html">Contributor's Guide</a>.
 
 </div>
 
+</div>
 
-          
+        
 
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
+        <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main"><div class="topbar container-xl fixed-top">
     <div class="topbar-contents row">
         <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
         <div class="col pl-md-4 topbar-main">
@@ -392,7 +584,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -416,12 +608,12 @@
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -430,7 +622,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ProjectPythia/pythia-foundations/main?urlpath=tree/core/data-formats/netcdf-cf.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ProjectPythia/pythia-foundations/main?urlpath=lab/tree/core/data-formats/netcdf-cf.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -445,14 +637,13 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> On this page
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview">
    Overview
@@ -489,8 +680,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#auxilliary-coordinates">
-     Auxilliary Coordinates
+    <a class="reference internal nav-link" href="#auxiliary-coordinates">
+     Auxiliary Coordinates
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -546,30 +737,29 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+          <div id="main-content" class="row">
+            <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+              
               <div>
                 
   <p><img alt="NetCDF Logo" src="https://www.unidata.ucar.edu/images/logos/netcdf-400x400.png" /></p>
-<div class="section" id="netcdf-and-cf-the-basics">
-<h1>NetCDF and CF: The Basics<a class="headerlink" href="#netcdf-and-cf-the-basics" title="Permalink to this headline">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="netcdf-and-cf-the-basics">
+<h1>NetCDF and CF: The Basics<a class="headerlink" href="#netcdf-and-cf-the-basics" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
 <hr class="docutils" />
 <div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>This notebook will introduce you to the basics of Climate and Forecasting (CF) metadata for netCDF data files. Along with an introduction to netCDF, we will introduce the CF data model and discuss some netCDF implementation details to consider when deciding how to write data with CF and netCDF. We will cover the following,</p>
-<ol class="simple">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>This tutorial will begin with an introduction to netCDF. The CF data model will then be covered, and finally, important implementation details for netCDF.  The structure of the tutorial is as follows:</p>
+<ol class="arabic simple">
 <li><p>Demonstrating gridded data</p></li>
 <li><p>Demonstrating observational data</p></li>
 </ol>
 </div>
 <div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Concepts</p></th>
@@ -589,13 +779,13 @@
 </tbody>
 </table>
 <ul class="simple">
-<li><p><strong>Experience level</strong>: beginner</p></li>
-<li><p><strong>Time to learn</strong>: medium</p></li>
+<li><p><strong>Time to learn</strong>: 50 minutes</p></li>
 </ul>
 </div>
 <hr class="docutils" />
 <div class="section" id="imports">
-<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>Some of these imports will be familiar from previous tutorials.  However, some of them likely look foreign; these will be covered in detail later in this tutorial.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
@@ -611,16 +801,16 @@
 <p><a name="gridded"></a></p>
 </div>
 <div class="section" id="gridded-data">
-<h2>Gridded Data<a class="headerlink" href="#gridded-data" title="Permalink to this headline">¶</a></h2>
-<p>Let’s say we’re working with some numerical weather forecast model output. Let’s walk through the steps necessary to store this data in netCDF, using the Climate and Forecasting metadata conventions to ensure that our data are available to as many tools as possible.</p>
+<h2>Gridded Data<a class="headerlink" href="#gridded-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>Let’s say we’re working with some numerical weather forecast model output. First, we need to store the data in the netCDF format. Second, we need to ensure that the metadata follows the Climate and Forecasting conventions.  These steps ensure that a dataset is available to as many scientific data tools as is possible. The examples in this section illustrate these steps in detail.</p>
 <p>To start, let’s assume the following about our data:</p>
 <ul class="simple">
-<li><p>There are three spatial dimensions (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">press</span></code>) and one temporal dimension (<code class="docutils literal notranslate"><span class="pre">times</span></code>)</p></li>
+<li><p>There are three spatial dimensions (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">press</span></code>) and one temporal dimension (<code class="docutils literal notranslate"><span class="pre">times</span></code>).</p></li>
 <li><p>The native coordinate system of the model is on a regular 3km x 3km grid (<code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>) that represents the Earth on a Lambert conformal projection.</p></li>
 <li><p>The vertical dimension (<code class="docutils literal notranslate"><span class="pre">press</span></code>) consists of several discrete pressure levels in units of hPa.</p></li>
 <li><p>The time dimension consists of twelve consecutive hours (<code class="docutils literal notranslate"><span class="pre">times</span></code>), beginning at 2200 UTC on the current day.</p></li>
 </ul>
-<p>We’ll also go ahead and generate our dimensional arrays:</p>
+<p>The following code generates the dimensional arrays just discussed:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -634,7 +824,7 @@
 </div>
 </div>
 </div>
-<p>Next, let’s create a multidimensional array of random values to hold our variable of interest … in this case, temperature (<code class="docutils literal notranslate"><span class="pre">temps</span></code>). Note that the dimensions correspond to the ones we just created above.</p>
+<p>In addition to dimensional arrays, we also need a variable of interest, which holds the data values at each unique dimensional index. In these examples, this variable is called <code class="docutils literal notranslate"><span class="pre">temps</span></code>, and holds temperature data. Note that the dimensions correspond to the ones we just created above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">times</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">press</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
@@ -643,8 +833,8 @@
 </div>
 </div>
 <div class="section" id="creating-the-file-and-dimensions">
-<h3>Creating the file and dimensions<a class="headerlink" href="#creating-the-file-and-dimensions" title="Permalink to this headline">¶</a></h3>
-<p>The first step is to create a new file in netCDF format and set up the shared dimensions we’ll be using in the file. We’ll be using the <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code> library to do all of the requisite netCDF API calls.</p>
+<h3>Creating the file and dimensions<a class="headerlink" href="#creating-the-file-and-dimensions" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>The first step in setting up a new netCDF file is to create a new file in netCDF format and set up the shared dimensions we’ll be using in the file. We’ll be using the <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code> library to do all of the requisite netCDF API calls.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nc</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s1">&#39;forecast_model.nc&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;NETCDF4_CLASSIC&#39;</span><span class="p">,</span> <span class="n">diskless</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -652,7 +842,15 @@
 </div>
 </div>
 </div>
-<p>We’re going to start by adding some global attribute metadata. These are recommendations from the standard (not required), but they’re easy to add and help users keep the data straight, so let’s go ahead and do it.</p>
+<div class="admonition alert alert-info">
+<p class="admonition-title">Info</p>
+<p>The netCDF file created in the above example resides in memory, not disk, due to the <code>diskless=True</code> argument. In order to create this file on disk, you must either remove this argument, or add the <code>persist=True</code> argument.</p>
+</div>
+<div class="admonition alert alert-danger">
+<p class="admonition-title">Danger</p>
+<p>If you open an existing file with <code>‘w’</code> as the second argument, any data already in the file will be overwritten. If you would like to edit the file, or add to it, open it using <code>‘a’</code> as the second argument.</p>
+</div>
+<p>We start the setup of this new netCDF file by creating and adding global attribute metadata.  These particular metadata elements are not required, but are recommended by the CF standard.  In addition, adding these elements to the file is simple, and helps users keep track of the data. Therefore, it is helpful to add these metadata elements, as shown below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nc</span><span class="o">.</span><span class="n">Conventions</span> <span class="o">=</span> <span class="s1">&#39;CF-1.7&#39;</span>
@@ -666,7 +864,7 @@
 </div>
 </div>
 </div>
-<p>At this point, this is the plain-text representation of this netCDF dataset:</p>
+<p>This next example shows a plain-text representation of our netCDF file as it exists currently:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">netcdf</span> <span class="n">forecast_model</span> <span class="p">{</span>
   <span class="n">attributes</span><span class="p">:</span>
     <span class="p">:</span><span class="n">Conventions</span> <span class="o">=</span> <span class="s2">&quot;CF-1.7&quot;</span> <span class="p">;</span>
@@ -683,7 +881,7 @@
 <p class="admonition-title">Info</p>
 <p>This plain-text representation is known as netCDF Common Data Format Language, or <strong>CDL</strong>.</p>
 </div>
-<p>Next, before adding variables to the file to define each of the data fields in this file, we need to define the dimensions that exist in this data set. We set each of <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">pressure</span></code> to the size of the corresponding array. We set <code class="docutils literal notranslate"><span class="pre">forecast_time</span></code> to be an “unlimited” dimension, which allows the dataset to grow along that dimension if we write additional data to it later.</p>
+<p>Variables are an important part of every netCDF file; they are used to define data fields. However, before we can add any variables to our file, we must first define the dimensions of the data. In this example, we create dimensions called <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">pressure</span></code>, and set the size of each dimension to the size of the corresponding data array. We then create an additional dimension, <code class="docutils literal notranslate"><span class="pre">forecast_time</span></code>, and set the size as None.  This defines the dimension as “unlimited”, meaning that if additional data values are added later, the netCDF file grows along this dimension.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nc</span><span class="o">.</span><span class="n">createDimension</span><span class="p">(</span><span class="s1">&#39;forecast_time&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
@@ -701,7 +899,7 @@ root group (NETCDF4_CLASSIC data model, file format HDF5):
     title: Forecast model run
     institution: Unidata
     source: WRF-1.5
-    history: 2021-06-17 20:31:52.745018 Python
+    history: 2023-06-11 01:29:46.650682 Python
     references: 
     comment: 
     dimensions(sizes): forecast_time(0), x(101), y(67), pressure(7)
@@ -711,7 +909,7 @@ root group (NETCDF4_CLASSIC data model, file format HDF5):
 </div>
 </div>
 </div>
-<p>The CDL representation now shows our dimensions:</p>
+<p>When we view our file’s CDL representation now, we can verify that the dimensions were successfully added to the netCDF file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">netcdf</span> <span class="n">forecast_model</span> <span class="p">{</span>
   <span class="n">dimensions</span><span class="p">:</span>
     <span class="n">forecast_time</span> <span class="o">=</span> <span class="n">UNLIMITED</span> <span class="p">(</span><span class="n">currently</span> <span class="mi">13</span><span class="p">)</span> <span class="p">;</span>
@@ -731,8 +929,8 @@ root group (NETCDF4_CLASSIC data model, file format HDF5):
 </div>
 </div>
 <div class="section" id="creating-and-filling-a-variable">
-<h3>Creating and filling a variable<a class="headerlink" href="#creating-and-filling-a-variable" title="Permalink to this headline">¶</a></h3>
-<p>So far, all we’ve done is outlined basic information about our dataset: broad metadata and the dimensions of our dataset. Now we create a <code class="docutils literal notranslate"><span class="pre">netCDF4</span> <span class="pre">variable</span></code> to hold one particular data field for our dataset, in this case the forecast air temperature. When defining this variable, we specify the datatype for the values being stored, the relevant dimensions, as well as enable optional <code class="docutils literal notranslate"><span class="pre">zlib</span></code>-based compression.</p>
+<h3>Creating and filling a variable<a class="headerlink" href="#creating-and-filling-a-variable" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Thus far, we have only added basic information to this netCDF dataset; namely, the dataset dimensions and some broad metadata. As described briefly above, variables are used to define data fields in netCDF files. Here, we create a <code class="docutils literal notranslate"><span class="pre">netCDF4</span> <span class="pre">variable</span></code> to hold a data field; in this case, the forecast air temperature. In order to create this netCDF4 variable, we must specify the data type of the values in the data field. We also must specify which dimensions contained in the netCDF file are relevant to this data field. Finally, we can specify whether or not to compress the data using a form of <code class="docutils literal notranslate"><span class="pre">zlib</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temps_var</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">createVariable</span><span class="p">(</span>
@@ -745,7 +943,7 @@ root group (NETCDF4_CLASSIC data model, file format HDF5):
 </div>
 </div>
 </div>
-<p>Now that we have the variable, we tell Python to write our array of data to it.</p>
+<p>We have now created a netCDF4 variable, but it does not yet define a data field. In this example, we use Python to associate our temperature data with the new variable:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temps_var</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">temps</span>
@@ -763,7 +961,7 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 </div>
 </div>
 </div>
-<p>If instead we wanted to write data sporadically, like once per time step, we could do that instead (though the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop below might actually be at a higher level in the program:</p>
+<p>You can also associate data with a variable sporadically. This example illustrates how to only associate one value per time step with the variable created earlier:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">next_slice</span> <span class="o">=</span> <span class="mi">0</span>
@@ -794,7 +992,8 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>We can also add attributes to this variable to define metadata. The CF conventions require a <code class="docutils literal notranslate"><span class="pre">units</span></code> attribute to be set for all variables that represent a dimensional quantity. The value of this attribute needs to be parsable by the <a class="reference external" href="https://www.unidata.ucar.edu/software/udunits/">UDUNITS</a> library. Here we set it to a value of <code class="docutils literal notranslate"><span class="pre">'Kelvin'</span></code>. We also set the standard (optional) attributes of <code class="docutils literal notranslate"><span class="pre">long_name</span></code> and <code class="docutils literal notranslate"><span class="pre">standard_name</span></code>. The former contains a longer description of the variable, while the latter comes from a controlled vocabulary in the CF conventions. This allows users of data to understand, in a standard fashion, what a variable represents. If we had missing values, we could also set the <code class="docutils literal notranslate"><span class="pre">missing_value</span></code> attribute to an appropriate value.</p>
+<p>We can also define metadata for this variable in the form of attributes; some specific attributes are required by the CF conventions. For example, the CF conventions require a <code class="docutils literal notranslate"><span class="pre">units</span></code> attribute to be set for all variables that represent a dimensional quantity. In addition, the value of this attribute must be parsable by the <a class="reference external" href="https://www.unidata.ucar.edu/software/udunits/">UDUNITS</a> library. In this example, the temperatures are in Kelvin, so we set the units attribute to <code class="docutils literal notranslate"><span class="pre">'Kelvin'</span></code>. Next, we set the <code class="docutils literal notranslate"><span class="pre">long_name</span></code> and <code class="docutils literal notranslate"><span class="pre">standard_name</span></code> attributes, which are recommended for most datasets, but optional. The <code class="docutils literal notranslate"><span class="pre">long_name</span></code> attribute contains a longer and more detailed description of a variable. On the other hand, the <code class="docutils literal notranslate"><span class="pre">standard_name</span></code> attribute names a variable using descriptive words from a predefined word list contained in the CF conventions. Defining these attributes allows users of your datasets to understand what each variable in a dataset represents. Sometimes, data fields do not have valid data values at every dimension point. In this case, the standard is to use a filler value for these missing data values, and to set the <code class="docutils literal notranslate"><span class="pre">missing_value</span></code> attribute to this filler value. In this case, however, there are no missing values, so the <code class="docutils literal notranslate"><span class="pre">missing_value</span></code> attribute can be set to any unused value, or not set at all.</p>
+<p>There are many different sets of recommendations for attributes on netCDF variables. For example, here is NASA’s set of recommended attributes:</p>
 <blockquote>
 <div><p><strong>NASA Dataset Interoperability Recommendations:</strong></p>
 <p>Section 2.2 - Include Basic CF Attributes</p>
@@ -824,7 +1023,7 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 </div>
 </div>
 </div>
-<p>The resulting CDL (truncated to the variables only) looks like:</p>
+<p>Here is the variable section of our dataset’s CDL, with the new attributes added:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">variables</span><span class="p">:</span>
     <span class="nb">float</span> <span class="n">Temperature</span><span class="p">(</span><span class="n">forecast_time</span><span class="p">,</span> <span class="n">pressure</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="p">;</span>
       <span class="n">Temperature</span><span class="p">:</span><span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;Kelvin&quot;</span> <span class="p">;</span>
@@ -835,9 +1034,9 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 </div>
 </div>
 <div class="section" id="coordinate-variables">
-<h3>Coordinate variables<a class="headerlink" href="#coordinate-variables" title="Permalink to this headline">¶</a></h3>
-<p>To properly orient our data in time and space, we need to go beyond dimensions (which define common sizes and alignment) and include values along these dimensions, which are called “Coordinate Variables”. Generally, these are defined by creating a one dimensional variable with the same name as the respective dimension.</p>
-<p>To start, we define variables which define our <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinate values. These variables include <code class="docutils literal notranslate"><span class="pre">standard_name</span></code>s which allow associating them with projections (more on this later) as well as an optional <code class="docutils literal notranslate"><span class="pre">axis</span></code> attribute to make clear what standard direction this coordinate refers to.</p>
+<h3>Coordinate variables<a class="headerlink" href="#coordinate-variables" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Dimensions in a netCDF file only define size and alignment metadata. In order to properly orient data in time and space, it is necessary to create “coordinate variables”, which define data values along each dimension. A coordinate variable is typically created as a one-dimensional variable, and has the same name as the corresponding dimension.</p>
+<p>To start, we define variables which define our <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinate values. It is recommended to include certain attributes for each coordinate variable. First, you should include a <code class="docutils literal notranslate"><span class="pre">standard_name</span></code>, which allows for associating the variable with projections, among other things. (Projections will be covered in detail later in this page.) Second, you can include an <code class="docutils literal notranslate"><span class="pre">axis</span></code> attribute, which clearly defines the spatial or temporal direction referred to by the coordinate variable. This next example demonstrates how to set up these attributes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_var</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">createVariable</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,))</span>
@@ -857,7 +1056,7 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 </div>
 </div>
 </div>
-<p>We also define a coordinate variable <code class="docutils literal notranslate"><span class="pre">pressure</span></code> to reference our data in the vertical dimension. The <code class="docutils literal notranslate"><span class="pre">standard_name</span></code> of <code class="docutils literal notranslate"><span class="pre">'air_pressure'</span></code> is sufficient to identify this coordinate variable as the vertical axis, but let’s go ahead and specify the <code class="docutils literal notranslate"><span class="pre">axis</span></code> as well. We also specify the attribute <code class="docutils literal notranslate"><span class="pre">positive</span></code> to indicate whether the variable increases when going up or down. In the case of pressure, this is technically optional.</p>
+<p>Our dataset contains vertical data of air pressure as well, so we must define a coordinate variable for this axis; we can simply call this new variable <code class="docutils literal notranslate"><span class="pre">pressure</span></code>. Since this axis represents air pressure data, we can set a <code class="docutils literal notranslate"><span class="pre">standard_name</span></code> of <code class="docutils literal notranslate"><span class="pre">'air_pressure'</span></code>.  With this <code class="docutils literal notranslate"><span class="pre">standard_name</span></code> attribute set, it should be obvious to users of this dataset that this variable represents a vertical axis, but for extra clarification, we also set the <code class="docutils literal notranslate"><span class="pre">axis</span></code> attribute as <code class="docutils literal notranslate"><span class="pre">'Z'</span></code>. We can also specify one more attribute, called <code class="docutils literal notranslate"><span class="pre">positive</span></code>.  This attribute indicates whether the variable values increase or decrease as the dimension values increase.  Setting this attribute is optional for some data; air pressure is one example.  However, we still set the attribute here, for the sake of completeness.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">press_var</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">createVariable</span><span class="p">(</span><span class="s1">&#39;pressure&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;pressure&#39;</span><span class="p">,))</span>
@@ -870,11 +1069,11 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 </div>
 </div>
 </div>
-<p>Time coordinates must contain a <code class="docutils literal notranslate"><span class="pre">units</span></code> attribute with a string value with a form similar to <code class="docutils literal notranslate"><span class="pre">'seconds</span> <span class="pre">since</span> <span class="pre">2019-01-06</span> <span class="pre">12:00:00.00'</span></code>. ‘seconds’, ‘minutes’, ‘hours’, and ‘days’ are the most commonly used units for time. Due to the variable length of months and years, they are not recommended.</p>
-<p>Before we can write data, we need to first need to convert our list of Python <code class="docutils literal notranslate"><span class="pre">datetime</span></code> instances to numeric values. We can use the <code class="docutils literal notranslate"><span class="pre">date2num</span></code> method from the <code class="docutils literal notranslate"><span class="pre">cftime</span></code> library to make this easy to convert using the unit string as defined above.</p>
+<p>Time coordinates must contain a <code class="docutils literal notranslate"><span class="pre">units</span></code> attribute; this attribute is a string value, and must have a form similar to the string<code class="docutils literal notranslate"><span class="pre">'seconds</span> <span class="pre">since</span> <span class="pre">2019-01-06</span> <span class="pre">12:00:00.00'</span></code>. ‘seconds’, ‘minutes’, ‘hours’, and ‘days’ are the most commonly used time intervals in these strings. It is not recommended to use ‘months’ or ‘years’ in time strings, as the length of these time intervals can vary.</p>
+<p>Before we can write data, we need to first convert our list of Python <code class="docutils literal notranslate"><span class="pre">datetime</span></code> objects to numeric values usable in time strings. We can perform this conversion by setting a time string in the format described above, then using the <code class="docutils literal notranslate"><span class="pre">date2num</span></code> method from the <code class="docutils literal notranslate"><span class="pre">cftime</span></code> library.  An example of this is shown below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;hours since {:%Y-%m-</span><span class="si">%d</span><span class="s1"> 00:00}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_units</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;hours since </span><span class="si">{</span><span class="n">times</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">%Y-%m-%d 00:00</span><span class="si">}</span><span class="s1">&#39;</span>
 <span class="n">time_vals</span> <span class="o">=</span> <span class="n">date2num</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">time_units</span><span class="p">)</span>
 <span class="n">time_vals</span>
 </pre></div>
@@ -886,7 +1085,7 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 </div>
 </div>
 </div>
-<p>Now we can create the <code class="docutils literal notranslate"><span class="pre">forecast_time</span></code> variable just as we did before for the other coordinate variables:</p>
+<p>Now that the time string is set up, we have all of the necessary information to set up the attributes for a <code class="docutils literal notranslate"><span class="pre">forecast_time</span></code> coordinate variable.  The creation of this variable is shown in the following example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_var</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">createVariable</span><span class="p">(</span><span class="s1">&#39;forecast_time&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;forecast_time&#39;</span><span class="p">,))</span>
@@ -899,7 +1098,7 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 </div>
 </div>
 </div>
-<p>The CDL representation of the variables now contains much more information:</p>
+<p>This next example shows the CDL representation of the netCDF file’s variables at this point. It is clear that much more information is now contained in this representation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">dimensions</span><span class="p">:</span>
     <span class="n">forecast_time</span> <span class="o">=</span> <span class="n">UNLIMITED</span> <span class="p">(</span><span class="n">currently</span> <span class="mi">13</span><span class="p">)</span> <span class="p">;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">101</span> <span class="p">;</span>
@@ -934,10 +1133,10 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 </pre></div>
 </div>
 </div>
-<div class="section" id="auxilliary-coordinates">
-<h3>Auxilliary Coordinates<a class="headerlink" href="#auxilliary-coordinates" title="Permalink to this headline">¶</a></h3>
-<p>Our data are still not CF-compliant because they do not contain latitude and longitude information, which is needed to properly locate the data. To solve this, we need to add variables with latitude and longitude. These are called “auxillary coordinate variables”, not because they are extra, but because they are not simple one-dimensional variables.</p>
-<p>Below, we first generate longitude and latitude values from our projected coordinates using the <code class="docutils literal notranslate"><span class="pre">pyproj</span></code> library.</p>
+<div class="section" id="auxiliary-coordinates">
+<h3>Auxiliary Coordinates<a class="headerlink" href="#auxiliary-coordinates" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Our data are still not CF-compliant, because they do not contain latitude and longitude information, which is needed to properly locate the data. In order to add location data to a netCDF file, we must create so-called “auxiliary coordinate variables” for latitude and longitude. (In this case, the word “auxiliary” means that the variables are not simple one-dimensional variables.)</p>
+<p>In this next example, we use the <code class="docutils literal notranslate"><span class="pre">Proj</span></code> function, found in the <code class="docutils literal notranslate"><span class="pre">pyproj</span></code> library, to create projections of our coordinates. We can then use these projections to generate latitude and longitude values for our data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -947,7 +1146,7 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 </div>
 </div>
 </div>
-<p>Now we can create the needed variables. Both are dimensioned on <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> and are two-dimensional. The longitude variable is identified as actually containing such information by its required units of <code class="docutils literal notranslate"><span class="pre">'degrees_east'</span></code>, as well as the optional <code class="docutils literal notranslate"><span class="pre">'longitude'</span></code> <code class="docutils literal notranslate"><span class="pre">standard_name</span></code> attribute. The case is the same for latitude, except the units are <code class="docutils literal notranslate"><span class="pre">'degrees_north'</span></code> and the <code class="docutils literal notranslate"><span class="pre">standard_name</span></code> is <code class="docutils literal notranslate"><span class="pre">'latitude'</span></code>.</p>
+<p>Now that we have latitude and longitude values, we can create variables for those values. Both of these variables are two-dimensional; the dimensions in question are <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code>. In order to convey that it contains the longitude information, we must set up the longitude variable with a <code class="docutils literal notranslate"><span class="pre">units</span></code> attribute of <code class="docutils literal notranslate"><span class="pre">'degrees_east'</span></code>. In addition, we can provide further clarity by setting a <code class="docutils literal notranslate"><span class="pre">standard_name</span></code> attribute of <code class="docutils literal notranslate"><span class="pre">'longitude'</span></code>. The case is the same for latitude, except the units are <code class="docutils literal notranslate"><span class="pre">'degrees_north'</span></code> and the <code class="docutils literal notranslate"><span class="pre">standard_name</span></code> is <code class="docutils literal notranslate"><span class="pre">'latitude'</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lon_var</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">createVariable</span><span class="p">(</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">))</span>
@@ -965,7 +1164,7 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 </div>
 </div>
 </div>
-<p>With the variables created, we identify these variables as containing coordinates for the <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> variable by setting the <code class="docutils literal notranslate"><span class="pre">coordinates</span></code> value to a space-separated list of the names of the auxilliary coordinate variables:</p>
+<p>Now that the auxiliary coordinate variables are created, we must identify them as coordinates for the <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> variable. In order to identify the variables in this way, we set the <code class="docutils literal notranslate"><span class="pre">coordinates</span></code> attribute of the <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> variable to a space-separated list of variables to identify, as shown below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temps_var</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">=</span> <span class="s1">&#39;lon lat&#39;</span>
@@ -973,7 +1172,7 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 </div>
 </div>
 </div>
-<p>This yields the following CDL:</p>
+<p>The portion of the CDL showing the new latitude and longitude variables, as well as the updated <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> variable, is listed below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">double</span> <span class="n">lon</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
     <span class="n">lon</span><span class="p">:</span><span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;degrees_east&quot;</span><span class="p">;</span>
     <span class="n">lon</span><span class="p">:</span><span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;longitude coordinate&quot;</span><span class="p">;</span>
@@ -992,9 +1191,9 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 </div>
 </div>
 <div class="section" id="coordinate-system-information">
-<h3>Coordinate System Information<a class="headerlink" href="#coordinate-system-information" title="Permalink to this headline">¶</a></h3>
-<p>With our data specified on a Lambert conformal projected grid, it would be good to include this information in our metadata. We can do this using a “grid mapping” variable. This uses a dummy scalar variable as a namespace for holding all of the required information. Relevant variables then reference the dummy variable with their <code class="docutils literal notranslate"><span class="pre">grid_mapping</span></code> attribute.</p>
-<p>Below we create a variable and set it up for a Lambert conformal conic projection on a spherical earth. The <code class="docutils literal notranslate"><span class="pre">grid_mapping_name</span></code> attribute describes which of the CF-supported grid mappings we are specifying. The names of additional attributes vary between the mappings.</p>
+<h3>Coordinate System Information<a class="headerlink" href="#coordinate-system-information" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Since the grid containing our data uses a Lambert conformal projection, adding this information to the dataset’s metadata can clear up some possible confusion. We can most easily add this metadata information by making use of a “grid mapping” variable. A grid mapping variable is a “placeholder” variable containing all required grid-mapping information. Other variables that need to access this information can then reference this placeholder variable in their <code class="docutils literal notranslate"><span class="pre">grid_mapping</span></code> attribute.</p>
+<p>In this example, we create a grid-mapping variable; this new variable is then set up for a Lambert-conformal conic projection on a spherical globe. By setting this variable’s <code class="docutils literal notranslate"><span class="pre">grid_mapping_name</span></code> attribute, we can indicate which CF-supported grid mapping this variable refers to. There are additional attributes that can also be set; however, the available options depend on the specific mapping.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proj_var</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">createVariable</span><span class="p">(</span><span class="s1">&#39;lambert_projection&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="p">())</span>
@@ -1022,7 +1221,7 @@ filling on, default _FillValue of -2147483647 used
 </div>
 </div>
 </div>
-<p>Now that we created the variable, all that’s left is to set the <code class="docutils literal notranslate"><span class="pre">grid_mapping</span></code> attribute on our <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> variable to the name of our dummy variable:</p>
+<p>Now that we have created a grid-mapping variable, we can specify the grid mapping by setting the <code class="docutils literal notranslate"><span class="pre">grid_mapping</span> <span class="pre">attribute</span></code> to the variable name. In this example, we set the <code class="docutils literal notranslate"><span class="pre">grid_mapping</span></code> attribute on the <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> variable:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temps_var</span><span class="o">.</span><span class="n">grid_mapping</span> <span class="o">=</span> <span class="s1">&#39;lambert_projection&#39;</span>  <span class="c1"># or proj_var.name</span>
@@ -1030,7 +1229,7 @@ filling on, default _FillValue of -2147483647 used
 </div>
 </div>
 </div>
-<p>This yields the CDL:</p>
+<p>Here is the portion of the CDL containing the modified <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> variable, as well as the new grid-mapping <code class="docutils literal notranslate"><span class="pre">lambert_projection</span></code> variable:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">variables</span><span class="p">:</span>
     <span class="nb">int</span> <span class="n">lambert_projection</span> <span class="p">;</span>
       <span class="n">lambert_projection</span><span class="p">:</span><span class="n">grid_mapping_name</span> <span class="o">=</span> <span class="s2">&quot;lambert_conformal_conic ;</span>
@@ -1049,13 +1248,14 @@ filling on, default _FillValue of -2147483647 used
 </div>
 </div>
 <div class="section" id="cell-bounds">
-<h3>Cell Bounds<a class="headerlink" href="#cell-bounds" title="Permalink to this headline">¶</a></h3>
+<h3>Cell Bounds<a class="headerlink" href="#cell-bounds" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>The use of “bounds” attributes is not required, but highly recommended. Here is a relevant excerpt from the NASA Dataset Interoperability Recommendations:</p>
 <blockquote>
 <div><p><strong>NASA Dataset Interoperability Recommendations:</strong></p>
 <p>Section 2.3 - Use CF “bounds” attributes</p>
 <p>CF conventions state: “When gridded data does not represent the point values of a field but instead represents some characteristic of the field within cells of finite ‘volume,’ a complete description of the variable should include metadata that describes the domain or extent of each cell, and the characteristic of the field that the cell values represent.”</p>
 </div></blockquote>
-<p>For example, if a rain guage is read every 3 hours but only dumped every six hours, it might look like this</p>
+<p>In this set of examples, consider a rain gauge which is read every three hours, but only dumped every six hours. The netCDF file for this gauge’s data readings might look like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">netcdf</span> <span class="n">precip_bucket_bounds</span> <span class="p">{</span>
   <span class="n">dimensions</span><span class="p">:</span>
       <span class="n">lat</span> <span class="o">=</span> <span class="mi">12</span> <span class="p">;</span>
@@ -1077,7 +1277,7 @@ filling on, default _FillValue of -2147483647 used
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>So the time coordinate looks like</p>
+<p>Considering the coordinate variable for time, and the <code class="docutils literal notranslate"><span class="pre">bounds</span></code> attribute set for this variable, the below graph illustrates the times of the gauge’s data readings:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|---</span><span class="n">X</span>
 <span class="o">|-------</span><span class="n">X</span>
         <span class="o">|---</span><span class="n">X</span>
@@ -1093,9 +1293,9 @@ filling on, default _FillValue of -2147483647 used
 </div>
 </div>
 <div class="section" id="observational-data">
-<h2>Observational Data<a class="headerlink" href="#observational-data" title="Permalink to this headline">¶</a></h2>
-<p>So far we’ve focused on how to handle storing data that are arranged in a grid. What about in-situ data, often termed “observational” data? CF describes this as <em>Conventions for Discrete Sampling Geometeries (DSG)</em>.</p>
-<p>For data that are regularly sampled (e.g., from a vertical profiler site), this is straightforward. First, let’s define some sample profile data for three hypothetical profilers located at Boulder, Norman, and Albany. We’ll assume that the profiler reports data every 10m, from 10 m up to (but not including) 1000 m.</p>
+<h2>Observational Data<a class="headerlink" href="#observational-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>Thus far, we have only worked with data arranged on grids. One common type of data, called “in-situ” or “observational” data, is usually arranged in other ways. The CF conventions for this type of data are called <em>Conventions for DSG (Discrete Sampling Geometries)</em>.</p>
+<p>For data that are regularly sampled (e.g., from a vertical profiler site), this is straightforward. For these examples, we will be using vertical profile data from three hypothetical profilers, located in Boulder, Norman, and Albany. These hypothetical profilers report data for every 10 m of altitude, from altitudes of 10 m up to (but not including) 1000 m. This first example illustrates how to set up latitude, longitude, altitude, and other necessary data for these profilers:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lons</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">97.1</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mf">73.8</span><span class="p">])</span>
@@ -1108,8 +1308,8 @@ filling on, default _FillValue of -2147483647 used
 </div>
 </div>
 <div class="section" id="creation-and-basic-setup">
-<h3>Creation and basic setup<a class="headerlink" href="#creation-and-basic-setup" title="Permalink to this headline">¶</a></h3>
-<p>First we create a new file and define some dimensions. Since this is profile data, heights will be one dimension. We use station as our other dimension. We also set the global <code class="docutils literal notranslate"><span class="pre">featureType</span></code> attribute to <code class="docutils literal notranslate"><span class="pre">'profile'</span></code> to indicate that this file holds “an ordered set of data points along a vertical line at a fixed horizontal position and fixed time”. We also add a dimension to assist in storing our string station ids.</p>
+<h3>Creation and basic setup<a class="headerlink" href="#creation-and-basic-setup" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>First, we create a new netCDF file, and define dimensions for it, corresponding to altitude and latitude. Since we are working with observational profile data, we define these dimensions as <code class="docutils literal notranslate"><span class="pre">heights</span></code> and <code class="docutils literal notranslate"><span class="pre">station</span></code>. We then set the global <code class="docutils literal notranslate"><span class="pre">featureType</span></code> attribute to <code class="docutils literal notranslate"><span class="pre">'profile'</span></code>, which defines the file as holding profile data. In these examples, the term “profile data” is defined as “an ordered set of data points along a vertical line at a fixed horizontal position and fixed time”. In addition, we define a placeholder dimension called str_len, which helps with storing station IDs as strings.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nc</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -1135,7 +1335,7 @@ root group (NETCDF4_CLASSIC data model, file format HDF5):
 </div>
 </div>
 </div>
-<p>Which gives this CDL:</p>
+<p>After this initial setup, the current state of our netCDF file is described in the following CDL:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">netcdf</span> <span class="n">obs_data</span> <span class="p">{</span>
   <span class="n">dimensions</span><span class="p">:</span>
     <span class="n">station</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">;</span>
@@ -1147,7 +1347,7 @@ root group (NETCDF4_CLASSIC data model, file format HDF5):
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>We can create our coordinates with:</p>
+<p>This example illustrates the setup of coordinate variables for latitude and longitude:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lon_var</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">createVariable</span><span class="p">(</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;station&#39;</span><span class="p">,))</span>
@@ -1161,7 +1361,7 @@ root group (NETCDF4_CLASSIC data model, file format HDF5):
 </div>
 </div>
 </div>
-<p>The standard refers to these as “instance variables” because each one refers to an instance of a feature. From here we can create our <code class="docutils literal notranslate"><span class="pre">height</span></code> coordinate variable:</p>
+<p>When a coordinate variable refers to an instance of a feature, netCDF standards refer to it as an “instance variable”. The latitude and longitude coordinate variables declared above are examples of instance variables. In this next example, we create an instance variable for altitude, referred to here as <code class="docutils literal notranslate"><span class="pre">heights</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights_var</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">createVariable</span><span class="p">(</span><span class="s1">&#39;heights&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;heights&#39;</span><span class="p">,))</span>
@@ -1175,8 +1375,8 @@ root group (NETCDF4_CLASSIC data model, file format HDF5):
 </div>
 </div>
 <div class="section" id="station-ids">
-<h3>Station IDs<a class="headerlink" href="#station-ids" title="Permalink to this headline">¶</a></h3>
-<p>Now we can also write our station IDs to a variable. This is a 2D variable, but one of the dimensions is simply there to facilitate treating strings as character arrays. We also assign this an attribute <code class="docutils literal notranslate"><span class="pre">cf_role</span></code> with a value of <code class="docutils literal notranslate"><span class="pre">'profile_id'</span></code> to facilitate software to identify individual profiles:</p>
+<h3>Station IDs<a class="headerlink" href="#station-ids" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>Using the placeholder dimension defined earlier, we can write the station IDs of our profilers to a variable as well. The variable used to store these station IDs is two-dimensional; however, one of these dimensions only holds metadata designed to aid in converting strings to character arrays. We can also assign the attribute <code class="docutils literal notranslate"><span class="pre">cf_role</span></code> to this variable, with a value of <code class="docutils literal notranslate"><span class="pre">'profile_id'</span></code>.  If certain software programs read this netCDF file, this attribute assists in identifying individual profiles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stid_var</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">createVariable</span><span class="p">(</span><span class="s1">&#39;stid&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;station&#39;</span><span class="p">,</span> <span class="s1">&#39;str_len&#39;</span><span class="p">))</span>
@@ -1187,7 +1387,7 @@ root group (NETCDF4_CLASSIC data model, file format HDF5):
 </div>
 </div>
 </div>
-<p>Now our CDL looks like:</p>
+<p>After adding station ID information, our file’s updated CDL should resemble this example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">netcdf</span> <span class="n">obs_data</span> <span class="p">{</span>
   <span class="n">dimensions</span><span class="p">:</span>
     <span class="n">station</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">;</span>
@@ -1215,8 +1415,8 @@ root group (NETCDF4_CLASSIC data model, file format HDF5):
 </div>
 </div>
 <div class="section" id="writing-the-field">
-<h3>Writing the field<a class="headerlink" href="#writing-the-field" title="Permalink to this headline">¶</a></h3>
-<p>Now all that’s left is to write our profile data, which looks fairly standard. We also add a scalar variable for the time at which these profiles were captured:</p>
+<h3>Writing the field<a class="headerlink" href="#writing-the-field" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>The final setup step for this netCDF file is to write our actual profile data to the file. In addition, we add an additional scalar variable, which holds the time of data capture for each profile:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_var</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">createVariable</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">())</span>
@@ -1232,7 +1432,7 @@ root group (NETCDF4_CLASSIC data model, file format HDF5):
 </div>
 </div>
 </div>
-<p>Note the use of the <code class="docutils literal notranslate"><span class="pre">coordinates</span></code> attribute to store the names of the auxilliary coordinate variables since they’re all dimensioned on <code class="docutils literal notranslate"><span class="pre">station</span></code> and not proper coordinate variables. This yields the CDL for the variables:</p>
+<p>The auxiliary coordinate variables in this netCDF file are not proper coordinate variables, and are all associated with the <code class="docutils literal notranslate"><span class="pre">station</span></code> dimension. Therefore, the names of these variables must be listed in an attribute called <code class="docutils literal notranslate"><span class="pre">coordinates</span></code>. The final CDL of the variables, including the <code class="docutils literal notranslate"><span class="pre">coordinates</span></code> attribute, is shown below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">variables</span><span class="p">:</span>
     <span class="n">double</span> <span class="n">lon</span><span class="p">(</span><span class="n">station</span><span class="p">)</span> <span class="p">;</span>
       <span class="n">lon</span><span class="p">:</span><span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;degrees_east&quot;</span> <span class="p">;</span>
@@ -1256,27 +1456,28 @@ root group (NETCDF4_CLASSIC data model, file format HDF5):
       <span class="n">temperature</span><span class="p">:</span><span class="n">coordinates</span> <span class="o">=</span> <span class="s2">&quot;lon lat heights time&quot;</span> <span class="p">;</span>
 </pre></div>
 </div>
-<p>These standards for storing DSG extend to time series, trajectories, and combinations of them. They also can extend for differing amounts of data  per feature using ragged arrays. For more information see the <a class="reference external" href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html#discrete-sampling-geometries">main document</a> or the <a class="reference external" href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html#appendix-examples-discrete-geometries">annotated DSG examples</a>.</p>
+<p>These standards for storing DSG data in netCDF files can be used for profiler data, as shown in these examples, as well as timeseries and trajectory data, and any combination of these types of data models. You can also use these standards for datasets with differing amounts of data in each feature, using so-called “ragged” arrays. For more information on ragged arrays, or other elements of the CF DSG standards, see the <a class="reference external" href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html#discrete-sampling-geometries">main documentation page</a>, or try some of the <a class="reference external" href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html#appendix-examples-discrete-geometries">annotated DSG examples</a>.</p>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>We have discussed and created examples of <strong>netCDF</strong> <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>s, both gridded and in-situ, that follow the Climate and Forecast (<strong>CF</strong>) Conventions. These <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>s are <em>self-describing</em>, in that their attributes, or <em>metadata</em>, are included. Other libraries in the Python scientific software ecosystem, such as <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and <code class="docutils literal notranslate"><span class="pre">MetPy</span></code> can thus easily read in (and write to) and analyze these <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>s.</p>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>We have created examples of and discussed the structure of <strong>netCDF</strong> <code class="docutils literal notranslate"><span class="pre">Datasets</span></code>, both gridded and in-situ. In addition, we covered the Climate and Forecasting (<strong>CF</strong>) Conventions, and the setup of netCDF files that follow these conventions. netCDF <code class="docutils literal notranslate"><span class="pre">Datasets</span></code> are self-describing; in other words, their attributes, or <em>metadata</em>, are included. Other libraries in the Python scientific software ecosystem, such as <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and <code class="docutils literal notranslate"><span class="pre">MetPy</span></code>, are therefore easily able to read in, write to, and analyze these <code class="docutils literal notranslate"><span class="pre">Datasets</span></code>.</p>
 <div class="section" id="whats-next">
-<h3>What’s Next?<a class="headerlink" href="#whats-next" title="Permalink to this headline">¶</a></h3>
-<p>In subsequent notebooks, we will work with netCDF <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>s culled from “real-life” model and in-situ sources.</p>
+<h3>What’s Next?<a class="headerlink" href="#whats-next" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>In subsequent notebooks, we will work with netCDF <code class="docutils literal notranslate"><span class="pre">Datasets</span></code> built from actual, non-example data sources, both model and in-situ.</p>
 <p><a name="references"></a></p>
 </div>
 </div>
 <div class="section" id="resources-and-references">
-<h2>Resources and References<a class="headerlink" href="#resources-and-references" title="Permalink to this headline">¶</a></h2>
+<h2>Resources and References<a class="headerlink" href="#resources-and-references" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <ul class="simple">
-<li><p>CF Conventions doc (<a class="reference external" href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html">1.7</a>)</p></li>
-<li><p>Jonathan Gregory’s old <a class="reference external" href="http://cfconventions.org/Data/cf-documents/overview/viewgraphs.pdf">CF presentation</a></p></li>
-<li><p>[NASA ESDS “Dataset Interoperability Recommendations for Earth Science”][<a class="reference external" href="https://earthdata.nasa.gov/user-resources/standards-and-references/dataset-interoperability-recommendations-for-earth-science">https://earthdata.nasa.gov/user-resources/standards-and-references/dataset-interoperability-recommendations-for-earth-science</a>)</p></li>
-<li><p>CF Data Model (cfdm) python package <a class="reference external" href="https://ncas-cms.github.io/cfdm/tutorial.html">tutorial</a></p></li>
-<li><p>Tim Whiteaker’s cfgeom python package (GitHub <a class="reference external" href="https://github.com/twhiteaker/CFGeom">repo</a>)(<a class="reference external" href="https://twhiteaker.github.io/CFGeom/tutorial.html">tutorial</a>)</p></li>
+<li><p><a class="reference external" href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html">CF Conventions doc (1.7)</a></p></li>
+<li><p><a class="reference external" href="http://cfconventions.org/Data/cf-documents/overview/viewgraphs.pdf">Jonathan Gregory’s old CF presentation</a></p></li>
+<li><p><a class="reference external" href="https://earthdata.nasa.gov/user-resources/standards-and-references/dataset-interoperability-recommendations-for-earth-science">NASA ESDS “Dataset Interoperability Recommendations for Earth Science”</a></p></li>
+<li><p><a class="reference external" href="https://ncas-cms.github.io/cfdm/tutorial.html">CF Data Model (cfdm) python package tutorial</a></p></li>
+<li><p><a class="reference external" href="https://github.com/twhiteaker/CFGeom">Tim Whiteaker’s cfgeom python package (GitHub repo)</a> and <a class="reference external" href="https://twhiteaker.github.io/CFGeom/tutorial.html">(tutorial)</a></p></li>
+<li><p><a class="reference external" href="https://unidata.github.io/netcdf4-python/">netCDF4 Documentation</a></p></li>
 </ul>
 </div>
 </div>
@@ -1293,7 +1494,7 @@ root group (NETCDF4_CLASSIC data model, file format HDF5):
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./core/data-formats"
         },
         predefinedOutput: true
@@ -1302,42 +1503,181 @@ root group (NETCDF4_CLASSIC data model, file format HDF5):
     <script>kernelName = 'python3'</script>
 
               </div>
-              
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="../data-formats.html" title="previous page">Data Formats</a>
-    <a class='right-next' id="next-link" href="../xarray.html" title="next page">Xarray</a>
-
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../data-formats.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data Formats</p>
         </div>
-        
-        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../xarray.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Xarray</p>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By the <a href="https://projectpythia.org/">Project Pythia</a> community<br/>
-        
-            &copy; Copyright 2020.<br/>
-          <div class="extra_footer">
-            All code in Pythia Foundations is licensed under Apache 2.0. All other non-code content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0 (CC BY 4.0)</a>.
-We want your feedback! See our <a href="https://foundations.projectpythia.org/appendix/how-to-contribute.html">Contributor's Guide</a>.
-
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </div>
           </div>
-      </p>
-    </div>
-  </footer>
-</main>
-
+        </main>
 
       </div>
     </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
+<footer class="footer">
+  <div class="container-fluid m-0 p-0">
+  
+    <div class="footer-item">
     
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  <div class="container-fluid footer-logos">
+    <div class="container-xl">
+      <div class="row d-flex flex-wrap align-items-center">
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="NCAR" src="../../_images/NCAR-contemp-logo-blue.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="Unidata" src="../../_images/Unidata_logo_horizontal_1200x300.svg" style="width: 100%">
+        </div>
+        <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
+          <img alt="UAlbany" src="../../_images/UAlbany-A2-logo-purple-gold.svg" style="width: 100%">
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  
+    <div class="footer-item">
+    <div class="container-fluid footer-menu pt-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-9 col-sm-4 col-md-4 col-lg-3 footer-menu-col">
+        <h1>About</h1>
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://projectpythia.org/about.html"
+              >About Project Pythia</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://foundations.projectpythia.org/preamble/how-to-use.html"
+              >How to use Pythia Foundations</a
+            >
+          </li>
+          <li>
+            <a href="https://projectpythia.org/#the-project-pythia-team"
+              >The Project Team</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="col-9 col-sm-4 col-md-4 col-lg-3 footer-menu-col">
+        <h1>Give Feedback</h1>
+        <ul class="list-unstyled">
+          <li>
+            <a href="mailto:projectpythia@ucar.edu">Email us!</a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/ProjectPythia/projectpythia.github.io/discussions"
+              >Project Pythia Discussions</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/ProjectPythia/pythia-foundations/discussions"
+              >Pythia Foundations Discussions</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="col-9 col-sm-4 col-md-4 col-lg-3 footer-menu-col">
+        <h1>Contribute</h1>
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://projectpythia.org/contributing.html"
+              >How to contribute to Project Pythia</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://foundations.projectpythia.org/appendix/how-to-contribute.html"
+              >How to contribute to Pythia Foundations</a
+            >
+          </li>
+          <li>
+            <a href="https://projectpythia.org/code_of_conduct.html"
+              >Our code of conduct</a
+            >
+          </li>
+          <li>
+            <a href="https://projectpythia.org/#weekly-working-group-meetings"
+              >Join our weekly meetings</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/ProjectPythia"
+              >Join us on GitHub</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  
+    <div class="footer-item">
+      <div class="container-fluid footer-info">
+    <div class="container-xl">
+      <div class="d-flex justify-content-center">
+        <p class="py-1 m-0">
+            &copy;&nbsp;2022.
+        
+          By the <a href="https://projectpythia.org/">Project Pythia</a> Community.
+        
+          Last updated on 11 June 2023.
+        </p>
+      </div>
+    </div>
+  </div>
+    </div>
+  
+    <div class="footer-item">
+    <div class="container-fluid footer-extra">
+  <div class="container">
+    <center>
+      Theme by <a href="https://projectpythia.org">Project Pythia</a>. All code
+      in Pythia Foundations is licensed under Apache 2.0. All other non-code
+      content is licensed under
+      <a href="https://creativecommons.org/licenses/by/4.0/">
+        Creative Commons BY 4.0 (CC BY 4.0)</a
+      >.
+    </center>
+    <br /><br />
+    <div class="row">
+      <p class="m-0">
+        <img
+          src="../../_static/footer-logo-nsf.png"
+          style="float: left; width: 60px; height: 60px; margin-right: 1rem"
+        />
+        This material is based upon work supported by the National Science
+        Foundation under Grant Nos. 2026863 and 2026899. Any opinions, findings,
+        and conclusions or recommendations expressed in this material are those
+        of the author(s) and do not necessarily reflect the views of the
+        National Science Foundation.
+      </p>
+    </div>
+  </div>
+</div>
+    </div>
+  
+  </div>
+</footer>
   </body>
 </html>
